@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volkswagen Golf - Detalle del Vehículo | Guille Autos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#0B1F3F',secondary:'#25D366'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        .custom-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #0B1F3F;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .custom-checkbox:checked {
+            background-color: #0B1F3F;
+        }
+        
+        .custom-checkbox:checked::after {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 6px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        .custom-radio {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #0B1F3F;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .custom-radio:checked {
+            border-color: #0B1F3F;
+        }
+        
+        .custom-radio:checked::after {
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #0B1F3F;
+        }
+        
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .gallery-thumbs img {
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+        
+        .gallery-thumbs img.active {
+            opacity: 1;
+            border: 2px solid #0B1F3F;
+        }
+        
+        .custom-range {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: #e5e7eb;
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        .custom-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #0B1F3F;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .custom-range::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: #0B1F3F;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .custom-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        
+        .custom-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .switch-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .switch-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .switch-slider {
+            background-color: #0B1F3F;
+        }
+        
+        input:checked + .switch-slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="bg-primary text-white fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://readdy.ai/api/search-image?query=silver%2520sports%2520car%2520silhouette%2520on%2520dark%2520blue%2520background%252C%2520minimalist%2520design%252C%2520professional%2520automotive%2520logo%252C%2520clean%2520lines%252C%2520modern%2520aesthetic%252C%2520luxury%2520vehicle%2520outline&width=200&height=80&seq=logo1&orientation=landscape" alt="Guille Autos Logo" class="h-12">
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4" data-readdy="true" class="hover:text-gray-300 transition-colors duration-200">Inicio</a>
+                <a href="#catalogo" class="hover:text-gray-300 transition-colors duration-200">Catálogo</a>
+                <a href="#beneficios" class="hover:text-gray-300 transition-colors duration-200">Beneficios</a>
+                <a href="#testimonios" class="hover:text-gray-300 transition-colors duration-200">Testimonios</a>
+                <a href="#faq" class="hover:text-gray-300 transition-colors duration-200">FAQ</a>
+                <a href="#contacto" class="hover:text-gray-300 transition-colors duration-200">Contacto</a>
+            </nav>
+            
+            <a href="https://wa.me/5493547449716" class="flex items-center bg-secondary text-white px-4 py-2 rounded-button whitespace-nowrap">
+                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                    <i class="ri-whatsapp-line"></i>
+                </div>
+                <span class="hidden md:inline">Consultar</span>
+            </a>
+            
+            <button class="md:hidden w-10 h-10 flex items-center justify-center text-white" id="mobile-menu-button">
+                <i class="ri-menu-line text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden bg-primary md:hidden">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4" data-readdy="true" class="text-white hover:text-gray-300 transition-colors duration-200">Inicio</a>
+                <a href="#catalogo" class="text-white hover:text-gray-300 transition-colors duration-200">Catálogo</a>
+                <a href="#beneficios" class="text-white hover:text-gray-300 transition-colors duration-200">Beneficios</a>
+                <a href="#testimonios" class="text-white hover:text-gray-300 transition-colors duration-200">Testimonios</a>
+                <a href="#faq" class="text-white hover:text-gray-300 transition-colors duration-200">FAQ</a>
+                <a href="#contacto" class="text-white hover:text-gray-300 transition-colors duration-200">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Back Navigation -->
+    <div class="pt-24 pb-4 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4" data-readdy="true" class="inline-flex items-center text-primary hover:text-opacity-80 transition-colors duration-200">
+                <div class="w-5 h-5 flex items-center justify-center mr-1">
+                    <i class="ri-arrow-left-line"></i>
+                </div>
+                <span>Volver al catálogo</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Car Gallery Section -->
+    <section class="py-6 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <div class="relative bg-white rounded-lg overflow-hidden shadow-md mb-4">
+                        <div class="relative">
+                            <img id="main-image" src="https://readdy.ai/api/search-image?query=Volkswagen%2520Golf%25202022%2520blue%2520hatchback%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=800&height=500&seq=car-main&orientation=landscape" alt="Volkswagen Golf 2022" class="w-full h-96 object-cover object-top">
+                            <span class="absolute top-4 left-4 bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">Usado</span>
+                            <div class="absolute bottom-4 right-4 flex space-x-2">
+                                <button id="prev-image" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-80 rounded-full hover:bg-opacity-100 transition-colors duration-200">
+                                    <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                        <i class="ri-arrow-left-s-line"></i>
+                                    </div>
+                                </button>
+                                <button id="next-image" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-80 rounded-full hover:bg-opacity-100 transition-colors duration-200">
+                                    <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                        <i class="ri-arrow-right-s-line"></i>
+                                    </div>
+                                </button>
+                                <button id="fullscreen" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-80 rounded-full hover:bg-opacity-100 transition-colors duration-200">
+                                    <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                        <i class="ri-fullscreen-line"></i>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="absolute bottom-4 left-4 bg-white bg-opacity-80 px-3 py-1 rounded-full text-sm font-medium">
+                                <span id="image-counter">1/5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-thumbs grid grid-cols-5 gap-2">
+                        <img src="https://readdy.ai/api/search-image?query=Volkswagen%2520Golf%25202022%2520blue%2520hatchback%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=150&height=100&seq=car-thumb1&orientation=landscape" alt="Volkswagen Golf - Vista frontal" class="w-full h-20 object-cover object-top rounded cursor-pointer active" data-index="0">
+                        <img src="https://readdy.ai/api/search-image?query=Volkswagen%2520Golf%25202022%2520blue%2520hatchback%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520side%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=150&height=100&seq=car-thumb2&orientation=landscape" alt="Volkswagen Golf - Vista lateral" class="w-full h-20 object-cover object-top rounded cursor-pointer" data-index="1">
+                        <img src="https://readdy.ai/api/search-image?query=Volkswagen%2520Golf%25202022%2520blue%2520hatchback%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520rear%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=150&height=100&seq=car-thumb3&orientation=landscape" alt="Volkswagen Golf - Vista trasera" class="w-full h-20 object-cover object-top rounded cursor-pointer" data-index="2">
+                        <img src="https://readdy.ai/api/search-image?query=Volkswagen%2520Golf%25202022%2520blue%2520hatchback%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520interior%2520dashboard%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=150&height=100&seq=car-thumb4&orientation=landscape" alt="Volkswagen Golf - Interior tablero" class="w-full h-20 object-cover object-top rounded cursor-pointer" data-index="3">
+                        <img src="https://readdy.ai/api/search-image?query=Volkswagen%2520Golf%25202022%2520blue%2520hatchback%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520interior%2520rear%2520seats%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=150&height=100&seq=car-thumb5&orientation=landscape" alt="Volkswagen Golf - Interior asientos traseros" class="w-full h-20 object-cover object-top rounded cursor-pointer" data-index="4">
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h1 class="text-3xl font-bold text-gray-900">Volkswagen Golf</h1>
+                                <p class="text-lg text-gray-600">Highline 1.4 TSI DSG</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-2xl font-bold text-primary">$15.200.000</p>
+                                <p class="text-sm text-gray-500">Precio contado</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-6 text-gray-600 mb-6">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span>2022</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+                                    <i class="ri-dashboard-3-line"></i>
+                                </div>
+                                <span>25.000 km</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+                                    <i class="ri-gas-station-line"></i>
+                                </div>
+                                <span>Nafta</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+                                    <i class="ri-settings-3-line"></i>
+                                </div>
+                                <span>Automática</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+                                    <i class="ri-palette-line"></i>
+                                </div>
+                                <span>Azul</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-3 mb-6">
+                            <button class="flex items-center bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-whatsapp-line"></i>
+                                </div>
+                                Consultar por WhatsApp
+                            </button>
+                            <button class="flex items-center bg-white border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-gray-50 transition-colors duration-200 whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-phone-line"></i>
+                                </div>
+                                Llamar
+                            </button>
+                            <button class="flex items-center bg-white border border-gray-300 text-gray-700 px-3 py-3 rounded-button font-medium hover:bg-gray-50 transition-colors duration-200 whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-share-line"></i>
+                                </div>
+                            </button>
+                            <button class="flex items-center bg-white border border-gray-300 text-gray-700 px-3 py-3 rounded-button font-medium hover:bg-gray-50 transition-colors duration-200 whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-heart-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-3">
+                                    <div class="w-5 h-5 flex items-center justify-center text-blue-600">
+                                        <i class="ri-information-line"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-blue-900 mb-1">Vehículo certificado</h3>
+                                    <p class="text-blue-700 text-sm">Este vehículo ha pasado por 100+ puntos de inspección, tiene historial verificado y garantía de 3 meses.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="font-medium text-gray-900 mb-2">Financiación disponible</h3>
+                                <p class="text-gray-600 text-sm mb-3">Cuotas desde $240.000/mes</p>
+                                <a href="#financiacion" class="text-primary hover:text-opacity-80 transition-colors duration-200 text-sm font-medium flex items-center">
+                                    Ver opciones
+                                    <div class="w-4 h-4 flex items-center justify-center ml-1">
+                                        <i class="ri-arrow-right-line"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h3 class="font-medium text-gray-900 mb-2">Tomamos tu usado</h3>
+                                <p class="text-gray-600 text-sm mb-3">Tasación sin cargo</p>
+                                <a href="#consulta" class="text-primary hover:text-opacity-80 transition-colors duration-200 text-sm font-medium flex items-center">
+                                    Consultar
+                                    <div class="w-4 h-4 flex items-center justify-center ml-1">
+                                        <i class="ri-arrow-right-line"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications Section -->
+    <section class="py-10 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-primary mb-6">Especificaciones técnicas</h2>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-10">
+                <div class="border-b border-gray-200">
+                    <div class="flex overflow-x-auto">
+                        <button class="tab-button px-6 py-4 font-medium text-primary border-b-2 border-primary whitespace-nowrap" data-tab="general">Características generales</button>
+                        <button class="tab-button px-6 py-4 font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap" data-tab="equipment">Equipamiento</button>
+                        <button class="tab-button px-6 py-4 font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap" data-tab="safety">Seguridad</button>
+                        <button class="tab-button px-6 py-4 font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap" data-tab="comfort">Confort</button>
+                        <button class="tab-button px-6 py-4 font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap" data-tab="multimedia">Multimedia</button>
+                    </div>
+                </div>
+                
+                <div class="p-6">
+                    <!-- General Tab -->
+                    <div id="general-tab" class="tab-content active">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Motor y rendimiento</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Motor</span>
+                                        <span class="font-medium text-gray-900">1.4 TSI</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Potencia</span>
+                                        <span class="font-medium text-gray-900">150 CV</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Torque</span>
+                                        <span class="font-medium text-gray-900">250 Nm</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Aceleración 0-100 km/h</span>
+                                        <span class="font-medium text-gray-900">8.2 segundos</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Velocidad máxima</span>
+                                        <span class="font-medium text-gray-900">220 km/h</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Consumo urbano</span>
+                                        <span class="font-medium text-gray-900">7.5 L/100km</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Consumo ruta</span>
+                                        <span class="font-medium text-gray-900">5.2 L/100km</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Dimensiones y capacidades</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Largo</span>
+                                        <span class="font-medium text-gray-900">4.258 mm</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Ancho</span>
+                                        <span class="font-medium text-gray-900">1.790 mm</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Alto</span>
+                                        <span class="font-medium text-gray-900">1.492 mm</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Distancia entre ejes</span>
+                                        <span class="font-medium text-gray-900">2.620 mm</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Capacidad del baúl</span>
+                                        <span class="font-medium text-gray-900">380 litros</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Capacidad del tanque</span>
+                                        <span class="font-medium text-gray-900">50 litros</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="text-gray-600">Peso</span>
+                                        <span class="font-medium text-gray-900">1.325 kg</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Equipment Tab -->
+                    <div id="equipment-tab" class="tab-content">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Exterior</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Llantas de aleación 17"</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Faros LED</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Luces diurnas LED</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Techo solar panorámico</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Barras portaequipaje</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Espejos retrovisores eléctricos</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Sensores de estacionamiento</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Interior</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Tapizado de cuero</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Asientos delanteros calefaccionados</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Asiento conductor con ajuste eléctrico</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Volante multifunción forrado en cuero</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Levas de cambio al volante</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Climatizador automático bizona</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Arranque sin llave (Keyless)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Safety Tab -->
+                    <div id="safety-tab" class="tab-content">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Sistemas de seguridad activa</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Control de estabilidad (ESP)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Control de tracción (ASR)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Sistema antibloqueo de frenos (ABS)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Distribución electrónica de frenado (EBD)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Asistente de frenado de emergencia</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Sistema de monitoreo de presión de neumáticos</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Asistente de arranque en pendiente</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Sistemas de seguridad pasiva</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">6 Airbags (frontales, laterales y de cortina)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Cinturones de seguridad de 3 puntos en todas las plazas</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Anclajes ISOFIX para sillas infantiles</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Carrocería con deformación programada</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Columna de dirección colapsable</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Apoyacabezas en todas las plazas</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Alarma e inmovilizador de motor</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Comfort Tab -->
+                    <div id="comfort-tab" class="tab-content">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Comodidades</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Climatizador automático bizona</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Asientos delanteros calefaccionados</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Asiento conductor con ajuste eléctrico</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Volante multifunción con ajuste en altura y profundidad</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Cierre centralizado con comando a distancia</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Levantavidrios eléctricos en las 4 puertas</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Espejos retrovisores eléctricos y calefaccionados</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Funcionalidad</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Computadora de a bordo</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Control de velocidad crucero</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Sensor de lluvia</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Sensor crepuscular</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Cámara de estacionamiento trasera</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Sensores de estacionamiento delanteros y traseros</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Asistente de estacionamiento</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Multimedia Tab -->
+                    <div id="multimedia-tab" class="tab-content">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Sistema de infoentretenimiento</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Pantalla táctil de 8"</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Sistema de navegación GPS</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Bluetooth con audio streaming</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">6 altavoces</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Control por voz</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Conectividad</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Apple CarPlay</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Android Auto</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">2 puertos USB</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Entrada auxiliar</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-5 h-5 flex items-center justify-center mr-3 text-green-500">
+                                            <i class="ri-check-line"></i>
+                                        </div>
+                                        <span class="text-gray-700">Cargador inalámbrico para smartphone</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <img src="https://readdy.ai/api/search-image?query=Volkswagen%2520Golf%25202022%2520infotainment%2520system%2520dashboard%2520display%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520detailed%2520interior%2520view%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=800&height=400&seq=multimedia&orientation=landscape" alt="Sistema multimedia Volkswagen Golf" class="w-full h-auto rounded-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financing Section -->
+    <section id="financiacion" class="py-10 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-primary mb-6">Opciones de financiación</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-medium text-gray-900 mb-4">Calculadora de cuotas</h3>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Precio del vehículo: $15.200.000</label>
+                        <div class="flex items-center">
+                            <span class="text-gray-600 mr-3">$4.560.000</span>
+                            <input type="range" min="4560000" max="15200000" value="10640000" step="100000" class="custom-range flex-1" id="finance-amount">
+                            <span class="text-gray-600 ml-3">$15.200.000</span>
+                        </div>
+                        <div class="flex justify-between mt-1">
+                            <span class="text-sm text-gray-500">Monto a financiar</span>
+                            <span class="text-sm font-medium" id="finance-amount-display">$10.640.000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Plazo en meses</label>
+                        <div class="flex space-x-2">
+                            <button class="term-button px-4 py-2 bg-gray-200 rounded-full text-gray-700 hover:bg-gray-300 whitespace-nowrap" data-term="24">24 meses</button>
+                            <button class="term-button px-4 py-2 bg-gray-200 rounded-full text-gray-700 hover:bg-gray-300 whitespace-nowrap" data-term="36">36 meses</button>
+                            <button class="term-button px-4 py-2 bg-primary text-white rounded-full whitespace-nowrap" data-term="48">48 meses</button>
+                            <button class="term-button px-4 py-2 bg-gray-200 rounded-full text-gray-700 hover:bg-gray-300 whitespace-nowrap" data-term="60">60 meses</button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 bg-gray-50 rounded-lg mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-gray-600">Cuota mensual estimada:</span>
+                            <span class="font-bold text-primary text-xl" id="monthly-payment">$240.000</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Tasa Nominal Anual:</span>
+                            <span class="text-gray-700">19,9%</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Costo Financiero Total:</span>
+                            <span class="text-gray-700">24,5%</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-gray-500 mb-4">* Las cuotas son estimativas y pueden variar. No incluye gastos administrativos ni seguro.</p>
+                    
+                    <button class="w-full bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">
+                        Solicitar financiación
+                    </button>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-medium text-gray-900 mb-4">Planes disponibles</h3>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="p-4 border border-gray-200 rounded-lg hover:border-primary transition-colors duration-200">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-medium text-gray-900">Plan Tradicional</h4>
+                                <span class="text-sm bg-primary bg-opacity-10 text-primary px-2 py-1 rounded">Recomendado</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-3">Financiación de hasta el 70% del valor del vehículo con cuotas fijas en pesos.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-500">Plazo máximo:</span>
+                                <span class="text-gray-700">60 meses</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-500">Tasa desde:</span>
+                                <span class="text-gray-700">19,9% TNA</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 border border-gray-200 rounded-lg hover:border-primary transition-colors duration-200">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-medium text-gray-900">Plan 50/50</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-3">Pagá el 50% al momento de la compra y el 50% restante en 12 meses sin interés.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-500">Plazo:</span>
+                                <span class="text-gray-700">12 meses</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-500">Tasa:</span>
+                                <span class="text-gray-700">0% TNA</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 border border-gray-200 rounded-lg hover:border-primary transition-colors duration-200">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-medium text-gray-900">Plan Balloon</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-3">Cuotas más bajas durante el plazo y un pago final mayor. Ideal si planeas renovar tu vehículo.</p>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-500">Plazo máximo:</span>
+                                <span class="text-gray-700">36 meses</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-500">Cuota final:</span>
+                                <span class="text-gray-700">30% del valor</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-blue-900 mb-2">Requisitos básicos</h4>
+                        <ul class="space-y-2 text-blue-800 text-sm">
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-blue-600 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span>DNI y comprobante de domicilio</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-blue-600 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span>Últimos 3 recibos de sueldo o certificación de ingresos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-blue-600 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span>Constancia de CUIL/CUIT</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-blue-600 mt-0.5">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span>Antigüedad laboral mínima de 6 meses</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="consulta" class="py-10 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-primary mb-6">Consulta por este vehículo</h2>
+            
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <form>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre completo</label>
+                            <input type="text" id="name" class="w-full bg-white border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
+                            <input type="tel" id="phone" class="w-full bg-white border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" class="w-full bg-white border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">Me interesa</label>
+                        <div class="relative">
+                            <select id="interest" class="w-full bg-white border border-gray-300 rounded px-4 py-2 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="info">Solicitar más información</option>
+                                <option value="test-drive">Agendar test drive</option>
+                                <option value="financing">Consultar por financiación</option>
+                                <option value="trade-in">Consultar por toma de usado</option>
+                                <option value="visit">Programar visita</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                        <textarea id="message" rows="4" class="w-full bg-white border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">Hola, estoy interesado/a en el Volkswagen Golf 2022 Highline 1.4 TSI DSG (Azul) publicado a $15.200.000. Me gustaría recibir más información.</textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">¿Desea programar una visita?</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="visit-date" class="block text-sm text-gray-600 mb-1">Fecha</label>
+                                <input type="date" id="visit-date" class="w-full bg-white border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="visit-time" class="block text-sm text-gray-600 mb-1">Hora</label>
+                                <input type="time" id="visit-time" class="w-full bg-white border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="custom-checkbox mr-3">
+                            <span class="text-sm text-gray-600">Deseo recibir novedades y promociones</span>
+                        </label>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="custom-checkbox mr-3">
+                            <span class="text-sm text-gray-600">Acepto la política de privacidad y el tratamiento de mis datos personales</span>
+                        </label>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button type="submit" class="flex-1 bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">
+                            Enviar consulta
+                        </button>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20estoy%20interesado/a%20en%20el%20Volkswagen%20Golf%202022%20Highline%201.4%20TSI%20DSG%20(Azul)%20publicado%20a%20$15.200.000.%20Me%20gustaría%20recibir%20más%20información." class="flex items-center justify-center bg-secondary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                            Consultar por WhatsApp
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Similar Vehicles Section -->
+    <section class="py-10 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-primary mb-6">Vehículos similares</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Similar Car 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=Honda%2520Civic%25202021%2520red%2520sedan%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car4&orientation=landscape" alt="Honda Civic 2021" class="w-full h-48 object-cover object-top">
+                        <span class="absolute top-4 left-4 bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">Usado</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-gray-900">Honda Civic</h3>
+                            <p class="text-base font-bold text-primary">$14.800.000</p>
+                        </div>
+                        <div class="flex flex-wrap gap-3 text-gray-600 text-sm mb-3">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span>2021</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-dashboard-3-line"></i>
+                                </div>
+                                <span>38.000 km</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-gas-station-line"></i>
+                                </div>
+                                <span>Nafta</span>
+                            </div>
+                        </div>
+                        <a href="#" class="block bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Similar Car 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=Audi%2520A3%25202023%2520gray%2520luxury%2520sedan%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car6&orientation=landscape" alt="Audi A3 2023" class="w-full h-48 object-cover object-top">
+                        <span class="absolute top-4 left-4 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">Nuevo</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-gray-900">Audi A3</h3>
+                            <p class="text-base font-bold text-primary">$29.800.000</p>
+                        </div>
+                        <div class="flex flex-wrap gap-3 text-gray-600 text-sm mb-3">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span>2023</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-dashboard-3-line"></i>
+                                </div>
+                                <span>0 km</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-gas-station-line"></i>
+                                </div>
+                                <span>Nafta</span>
+                            </div>
+                        </div>
+                        <a href="#" class="block bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Similar Car 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=Toyota%2520Corolla%25202023%2520silver%2520sedan%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car1&orientation=landscape" alt="Toyota Corolla 2023" class="w-full h-48 object-cover object-top">
+                        <span class="absolute top-4 left-4 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">Nuevo</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-gray-900">Toyota Corolla</h3>
+                            <p class="text-base font-bold text-primary">$18.500.000</p>
+                        </div>
+                        <div class="flex flex-wrap gap-3 text-gray-600 text-sm mb-3">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span>2023</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-dashboard-3-line"></i>
+                                </div>
+                                <span>0 km</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-gas-station-line"></i>
+                                </div>
+                                <span>Nafta</span>
+                            </div>
+                        </div>
+                        <a href="#" class="block bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4" data-readdy="true" class="inline-block bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">
+                    Ver todos los vehículos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="https://readdy.ai/api/search-image?query=silver%2520sports%2520car%2520silhouette%2520on%2520dark%2520blue%2520background%252C%2520minimalist%2520design%252C%2520professional%2520automotive%2520logo%252C%2520clean%2520lines%252C%2520modern%2520aesthetic%252C%2520luxury%2520vehicle%2520outline&width=200&height=80&seq=logo2&orientation=landscape" alt="Guille Autos Logo" class="h-12 mb-4">
+                    <p class="text-gray-300 mb-4">Tu concesionario de confianza para la compra de autos nuevos y usados en Argentina.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-facebook-fill"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-instagram-line"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-youtube-line"></i>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/5493547449716" class="text-gray-300 hover:text-white transition-colors duration-200">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Enlaces rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4" data-readdy="true" class="text-gray-300 hover:text-white transition-colors duration-200">Inicio</a></li>
+                        <li><a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4#catalogo" data-readdy="true" class="text-gray-300 hover:text-white transition-colors duration-200">Catálogo</a></li>
+                        <li><a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4#beneficios" data-readdy="true" class="text-gray-300 hover:text-white transition-colors duration-200">Beneficios</a></li>
+                        <li><a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4#testimonios" data-readdy="true" class="text-gray-300 hover:text-white transition-colors duration-200">Testimonios</a></li>
+                        <li><a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4#faq" data-readdy="true" class="text-gray-300 hover:text-white transition-colors duration-200">Preguntas frecuentes</a></li>
+                        <li><a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4#contacto" data-readdy="true" class="text-gray-300 hover:text-white transition-colors duration-200">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Venta de autos nuevos</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Venta de autos usados</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Financiación</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Tasación de vehículos</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Servicio post-venta</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Gestoría del automotor</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-300">Av. San Martín 1234, Córdoba, Argentina</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-300">+54 9 3547 44-9716</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-300">info@guilleautos.com.ar</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-gray-300">Lun-Vie: 9:00 - 18:00<br>Sáb: 9:00 - 13:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-6 mt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-400 mb-4 md:mb-0">&copy; 2025 Guille Autos. Todos los derechos reservados.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Política de privacidad</a>
+                        <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Términos y condiciones</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="fixed bottom-6 right-6 flex flex-col space-y-3 z-50">
+        <a href="tel:+5493547449716" class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-colors duration-200">
+            <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-phone-line text-xl"></i>
+            </div>
+        </a>
+        <a href="https://wa.me/5493547449716?text=Hola,%20estoy%20interesado/a%20en%20el%20Volkswagen%20Golf%202022%20Highline%201.4%20TSI%20DSG%20(Azul)%20publicado%20a%20$15.200.000.%20Me%20gustaría%20recibir%20más%20información." class="bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-colors duration-200">
+            <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-whatsapp-line text-xl"></i>
+            </div>
+        </a>
+    </div>
+
+    <!-- Fullscreen Image Modal -->
+    <div id="fullscreen-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+        <button id="close-modal" class="absolute top-4 right-4 text-white">
+            <div class="w-10 h-10 flex items-center justify-center">
+                <i class="ri-close-line text-2xl"></i>
+            </div>
+        </button>
+        <button id="prev-modal" class="absolute left-4 text-white">
+            <div class="w-10 h-10 flex items-center justify-center">
+                <i class="ri-arrow-left-s-line text-2xl"></i>
+            </div>
+        </button>
+        <button id="next-modal" class="absolute right-4 text-white">
+            <div class="w-10 h-10 flex items-center justify-center">
+                <i class="ri-arrow-right-s-line text-2xl"></i>
+            </div>
+        </button>
+        <img id="modal-image" src="" alt="Volkswagen Golf - Vista ampliada" class="max-w-full max-h-full">
+    </div>
+
+    <script id="mobile-menu-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+
+    <script id="tabs-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('border-primary', 'text-primary');
+                        btn.classList.add('text-gray-500');
+                    });
+                    
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button and corresponding content
+                    this.classList.add('border-b-2', 'border-primary', 'text-primary');
+                    this.classList.remove('text-gray-500');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+        });
+    </script>
+
+    <script id="gallery-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('main-image');
+            const thumbnails = document.querySelectorAll('.gallery-thumbs img');
+            const imageCounter = document.getElementById('image-counter');
+            const prevButton = document.getElementById('prev-image');
+            const nextButton = document.getElementById('next-image');
+            const fullscreenButton = document.getElementById('fullscreen');
+            const fullscreenModal = document.getElementById('fullscreen-modal');
+            const modalImage = document.getElementById('modal-image');
+            const closeModal = document.getElementById('close-modal');
+            const prevModal = document.getElementById('prev-modal');
+            const nextModal = document.getElementById('next-modal');
+            
+            let currentIndex = 0;
+            const images = [
+                'https://readdy.ai/api/search-image?query=Volkswagen%2520Golf%25202022%2520blue%2520hatchback%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=800&height=500&seq=car-main&orientation=landscape',
+                'https://readdy.ai/api/search-image?query=Volkswagen%2520Golf%25202022%2520blue%2520hatchback%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520side%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=800&height=500&seq=car-side&orientation=landscape',
+                'https://readdy.ai/api/search-image?query=Volkswagen%2520Golf%25202022%2520blue%2520hatchback%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520rear%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=800&height=500&seq=car-rear&orientation=landscape',
+                'https://readdy.ai/api/search-image?query=Volkswagen%2520Golf%25202022%2520blue%2520hatchback%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520interior%2520dashboard%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=800&height=500&seq=car-interior1&orientation=landscape',
+                'https://readdy.ai/api/search-image?query=Volkswagen%2520Golf%25202022%2520blue%2520hatchback%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520interior%2520rear%2520seats%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=800&height=500&seq=car-interior2&orientation=landscape'
+            ];
+            
+            // Update active thumbnail
+            function updateActiveThumbnail() {
+                thumbnails.forEach((thumb, index) => {
+                    if (index === currentIndex) {
+                        thumb.classList.add('active');
+                    } else {
+                        thumb.classList.remove('active');
+                    }
+                });
+                imageCounter.textContent = `${currentIndex + 1}/${images.length}`;
+            }
+            
+            // Change main image
+            function changeImage(index) {
+                currentIndex = index;
+                mainImage.src = images[index];
+                updateActiveThumbnail();
+            }
+            
+            // Thumbnail click event
+            thumbnails.forEach((thumb, index) => {
+                thumb.addEventListener('click', function() {
+                    changeImage(index);
+                });
+            });
+            
+            // Previous button click
+            prevButton.addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                changeImage(currentIndex);
+            });
+            
+            // Next button click
+            nextButton.addEventListener('click', function() {
+                currentIndex = (currentIndex + 1) % images.length;
+                changeImage(currentIndex);
+            });
+            
+            // Fullscreen button click
+            fullscreenButton.addEventListener('click', function() {
+                modalImage.src = images[currentIndex];
+                fullscreenModal.classList.remove('hidden');
+            });
+            
+            // Close modal button click
+            closeModal.addEventListener('click', function() {
+                fullscreenModal.classList.add('hidden');
+            });
+            
+            // Previous modal button click
+            prevModal.addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                modalImage.src = images[currentIndex];
+                updateActiveThumbnail();
+            });
+            
+            // Next modal button click
+            nextModal.addEventListener('click', function() {
+                currentIndex = (currentIndex + 1) % images.length;
+                modalImage.src = images[currentIndex];
+                updateActiveThumbnail();
+            });
+            
+            // Close modal when clicking outside the image
+            fullscreenModal.addEventListener('click', function(e) {
+                if (e.target === fullscreenModal) {
+                    fullscreenModal.classList.add('hidden');
+                }
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !fullscreenModal.classList.contains('hidden')) {
+                    fullscreenModal.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+    <script id="financing-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const financeAmount = document.getElementById('finance-amount');
+            const financeAmountDisplay = document.getElementById('finance-amount-display');
+            const monthlyPayment = document.getElementById('monthly-payment');
+            const termButtons = document.querySelectorAll('.term-button');
+            
+            let currentTerm = 48;
+            
+            // Format number as currency
+            function formatCurrency(value) {
+                return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            }
+            
+            // Calculate monthly payment
+            function calculateMonthlyPayment() {
+                const amount = parseInt(financeAmount.value);
+                const interestRate = 0.199 / 12; // 19.9% annual rate converted to monthly
+                const term = currentTerm;
+                
+                // Calculate monthly payment using the formula: P = A * r * (1 + r)^n / ((1 + r)^n - 1)
+                const payment = amount * interestRate * Math.pow(1 + interestRate, term) / (Math.pow(1 + interestRate, term) - 1);
+                
+                monthlyPayment.textContent = formatCurrency(Math.round(payment));
+            }
+            
+            // Update finance amount display
+            financeAmount.addEventListener('input', function() {
+                financeAmountDisplay.textContent = formatCurrency(this.value);
+                calculateMonthlyPayment();
+            });
+            
+            // Term button click event
+            termButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    termButtons.forEach(btn => {
+                        btn.classList.remove('bg-primary', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-700');
+                    });
+                    
+                    this.classList.remove('bg-gray-200', 'text-gray-700');
+                    this.classList.add('bg-primary', 'text-white');
+                    
+                    currentTerm = parseInt(this.getAttribute('data-term'));
+                    calculateMonthlyPayment();
+                });
+            });
+            
+            // Initialize
+            calculateMonthlyPayment();
+        });
+    </script>
+</body>
+</html>

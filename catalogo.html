@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Vehículos - Guille Autos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#0B1F3F',secondary:'#25D366'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+    font-family: 'Inter', sans-serif;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.custom-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0B1F3F;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+.custom-checkbox:checked {
+    background-color: #0B1F3F;
+}
+.custom-checkbox:checked::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.custom-radio {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0B1F3F;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+.custom-radio:checked {
+    border-color: #0B1F3F;
+}
+.custom-radio:checked::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #0B1F3F;
+}
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.range-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 5px;
+    background: #e0e0e0;
+    outline: none;
+}
+.range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #0B1F3F;
+    cursor: pointer;
+}
+.range-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #0B1F3F;
+    cursor: pointer;
+    border: none;
+}
+.color-option {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+}
+.color-option.selected {
+    border-color: #0B1F3F;
+}
+.color-option.selected::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+</style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<!-- Header -->
+<header class="bg-primary text-white fixed w-full z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center">
+            <img src="https://readdy.ai/api/search-image?query=silver%2520sports%2520car%2520silhouette%2520on%2520dark%2520blue%2520background%252C%2520minimalist%2520design%252C%2520professional%2520automotive%2520logo%252C%2520clean%2520lines%252C%2520modern%2520aesthetic%252C%2520luxury%2520vehicle%2520outline&width=200&height=80&seq=logo1&orientation=landscape" alt="Guille Autos Logo" class="h-12">
+        </div>
+        <nav class="hidden md:flex items-center space-x-6">
+            <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4" data-readdy="true" class="hover:text-gray-300 transition-colors duration-200">Inicio</a>
+            <a href="#" class="text-secondary font-medium transition-colors duration-200">Catálogo</a>
+            <a href="#" class="hover:text-gray-300 transition-colors duration-200">Beneficios</a>
+            <a href="#" class="hover:text-gray-300 transition-colors duration-200">Testimonios</a>
+            <a href="#" class="hover:text-gray-300 transition-colors duration-200">FAQ</a>
+            <a href="#" class="hover:text-gray-300 transition-colors duration-200">Contacto</a>
+        </nav>
+        <a href="https://wa.me/5493547449716" class="flex items-center bg-secondary text-white px-4 py-2 rounded-button whitespace-nowrap">
+            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-whatsapp-line"></i>
+            </div>
+            <span class="hidden md:inline">Consultar</span>
+        </a>
+        <button class="md:hidden w-10 h-10 flex items-center justify-center text-white" id="mobile-menu-button">
+            <i class="ri-menu-line text-2xl"></i>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden bg-primary md:hidden">
+        <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+            <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4" data-readdy="true" class="text-white hover:text-gray-300 transition-colors duration-200">Inicio</a>
+            <a href="#" class="text-secondary font-medium transition-colors duration-200">Catálogo</a>
+            <a href="#" class="text-white hover:text-gray-300 transition-colors duration-200">Beneficios</a>
+            <a href="#" class="text-white hover:text-gray-300 transition-colors duration-200">Testimonios</a>
+            <a href="#" class="text-white hover:text-gray-300 transition-colors duration-200">FAQ</a>
+            <a href="#" class="text-white hover:text-gray-300 transition-colors duration-200">Contacto</a>
+        </div>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="bg-white shadow-sm pt-20">
+    <div class="container mx-auto px-4 py-3">
+        <div class="flex items-center text-sm">
+            <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4" data-readdy="true" class="text-gray-500 hover:text-primary">Inicio</a>
+            <div class="w-4 h-4 flex items-center justify-center text-gray-400 mx-1">
+                <i class="ri-arrow-right-s-line"></i>
+            </div>
+            <span class="text-primary font-medium">Catálogo</span>
+        </div>
+    </div>
+</div>
+
+<!-- Filters Section -->
+<section class="bg-white shadow-md py-6 sticky top-16 z-40">
+    <div class="container mx-auto px-4">
+        <div class="mb-4">
+            <h1 class="text-2xl font-bold text-primary">Catálogo de vehículos</h1>
+            <p class="text-gray-600">Explora nuestra amplia selección de autos nuevos y usados</p>
+        </div>
+        
+        <div class="bg-gray-50 rounded-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-semibold text-primary">Filtros avanzados</h2>
+                <button id="toggle-filters" class="text-sm text-primary flex items-center">
+                    <span id="filter-text">Ocultar filtros</span>
+                    <div class="w-5 h-5 flex items-center justify-center ml-1">
+                        <i id="filter-icon" class="ri-arrow-up-s-line"></i>
+                    </div>
+                </button>
+            </div>
+            
+            <div id="filters-container">
+                <form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Tipo</label>
+                            <div class="flex space-x-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="type" value="all" class="custom-radio" checked>
+                                    <span class="ml-2 text-sm">Todos</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="type" value="new" class="custom-radio">
+                                    <span class="ml-2 text-sm">Nuevos</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="type" value="used" class="custom-radio">
+                                    <span class="ml-2 text-sm">Usados</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Marca</label>
+                            <div class="relative">
+                                <select class="w-full bg-white border border-gray-300 rounded px-4 py-2 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="">Todas</option>
+                                    <option value="toyota">Toyota</option>
+                                    <option value="volkswagen">Volkswagen</option>
+                                    <option value="ford">Ford</option>
+                                    <option value="chevrolet">Chevrolet</option>
+                                    <option value="renault">Renault</option>
+                                    <option value="fiat">Fiat</option>
+                                    <option value="peugeot">Peugeot</option>
+                                    <option value="honda">Honda</option>
+                                    <option value="audi">Audi</option>
+                                    <option value="bmw">BMW</option>
+                                    <option value="mercedes">Mercedes-Benz</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                    <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Modelo</label>
+                            <div class="relative">
+                                <select class="w-full bg-white border border-gray-300 rounded px-4 py-2 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="">Todos</option>
+                                    <option value="corolla">Corolla</option>
+                                    <option value="hilux">Hilux</option>
+                                    <option value="golf">Golf</option>
+                                    <option value="polo">Polo</option>
+                                    <option value="ranger">Ranger</option>
+                                    <option value="focus">Focus</option>
+                                    <option value="cruze">Cruze</option>
+                                    <option value="onix">Onix</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                    <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Año</label>
+                            <div class="flex space-x-2">
+                                <div class="relative flex-1">
+                                    <select class="w-full bg-white border border-gray-300 rounded px-4 py-2 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                        <option value="">Desde</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2015">2015</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                        <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                            <i class="ri-arrow-down-s-line"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative flex-1">
+                                    <select class="w-full bg-white border border-gray-300 rounded px-4 py-2 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                        <option value="">Hasta</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                        <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                            <i class="ri-arrow-down-s-line"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Precio (en millones)</label>
+                            <div class="flex items-center space-x-4">
+                                <div class="flex-1">
+                                    <input type="range" class="range-slider" min="0" max="50" step="1" value="0" id="price-min">
+                                    <div class="flex justify-between mt-1">
+                                        <span class="text-xs text-gray-500">$0M</span>
+                                        <span class="text-xs text-gray-500" id="price-min-value">$0M</span>
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <input type="range" class="range-slider" min="0" max="50" step="1" value="50" id="price-max">
+                                    <div class="flex justify-between mt-1">
+                                        <span class="text-xs text-gray-500" id="price-max-value">$50M</span>
+                                        <span class="text-xs text-gray-500">$50M</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Kilómetros</label>
+                            <div class="flex items-center space-x-4">
+                                <div class="flex-1">
+                                    <input type="range" class="range-slider" min="0" max="200000" step="5000" value="0" id="km-min">
+                                    <div class="flex justify-between mt-1">
+                                        <span class="text-xs text-gray-500">0 km</span>
+                                        <span class="text-xs text-gray-500" id="km-min-value">0 km</span>
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <input type="range" class="range-slider" min="0" max="200000" step="5000" value="200000" id="km-max">
+                                    <div class="flex justify-between mt-1">
+                                        <span class="text-xs text-gray-500" id="km-max-value">200.000 km</span>
+                                        <span class="text-xs text-gray-500">200.000 km</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Combustible</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="fuel" value="nafta">
+                                    <span class="ml-2 text-sm">Nafta</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="fuel" value="diesel">
+                                    <span class="ml-2 text-sm">Diesel</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="fuel" value="hibrido">
+                                    <span class="ml-2 text-sm">Híbrido</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="fuel" value="electrico">
+                                    <span class="ml-2 text-sm">Eléctrico</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="fuel" value="gnc">
+                                    <span class="ml-2 text-sm">GNC</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Transmisión</label>
+                            <div class="flex space-x-4">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="transmission" value="manual">
+                                    <span class="ml-2 text-sm">Manual</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="transmission" value="automatica">
+                                    <span class="ml-2 text-sm">Automática</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Color</label>
+                            <div class="flex flex-wrap gap-2">
+                                <div class="color-option bg-white border border-gray-300" data-color="blanco"></div>
+                                <div class="color-option bg-black" data-color="negro"></div>
+                                <div class="color-option bg-gray-500" data-color="gris"></div>
+                                <div class="color-option bg-blue-600" data-color="azul"></div>
+                                <div class="color-option bg-red-600" data-color="rojo"></div>
+                                <div class="color-option bg-green-600" data-color="verde"></div>
+                                <div class="color-option bg-yellow-500" data-color="amarillo"></div>
+                                <div class="color-option bg-orange-500" data-color="naranja"></div>
+                                <div class="color-option bg-purple-600" data-color="violeta"></div>
+                                <div class="color-option bg-pink-500" data-color="rosa"></div>
+                                <div class="color-option bg-gradient-to-r from-gray-200 to-gray-400" data-color="plateado"></div>
+                                <div class="color-option bg-gradient-to-r from-yellow-700 to-yellow-500" data-color="dorado"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de vehículo</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="vehicle_type" value="sedan">
+                                    <span class="ml-2 text-sm">Sedán</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="vehicle_type" value="hatchback">
+                                    <span class="ml-2 text-sm">Hatchback</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="vehicle_type" value="suv">
+                                    <span class="ml-2 text-sm">SUV</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="vehicle_type" value="pickup">
+                                    <span class="ml-2 text-sm">Pickup</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="vehicle_type" value="coupe">
+                                    <span class="ml-2 text-sm">Coupé</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="vehicle_type" value="familiar">
+                                    <span class="ml-2 text-sm">Familiar</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Características</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="features" value="aire">
+                                    <span class="ml-2 text-sm">Aire acond.</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="features" value="cuero">
+                                    <span class="ml-2 text-sm">Tapizado cuero</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="features" value="techo">
+                                    <span class="ml-2 text-sm">Techo solar</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" name="features" value="camara">
+                                    <span class="ml-2 text-sm">Cámara trasera</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-end">
+                            <button type="submit" class="w-full bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-filter-3-line"></i>
+                                </div>
+                                Aplicar filtros
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sort and View Controls -->
+<section class="bg-white border-t border-b border-gray-200 py-3 sticky top-[calc(4rem+10.5rem)] z-30" id="sort-controls">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div class="flex items-center">
+                <span class="text-sm text-gray-600 mr-2">Ordenar por:</span>
+                <div class="relative">
+                    <select id="sort-select" class="bg-white border border-gray-300 rounded px-3 py-1 pr-8 text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <option value="relevance">Relevancia</option>
+                        <option value="price-asc">Precio: menor a mayor</option>
+                        <option value="price-desc">Precio: mayor a menor</option>
+                        <option value="year-desc">Año: más reciente</option>
+                        <option value="year-asc">Año: más antiguo</option>
+                        <option value="km-asc">Kilómetros: menor a mayor</option>
+                        <option value="date-desc">Fecha de publicación</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                        <div class="w-4 h-4 flex items-center justify-center text-gray-500">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex items-center justify-between w-full md:w-auto">
+                <div class="text-sm text-gray-600">
+                    <span class="font-medium">120</span> vehículos encontrados
+                </div>
+                
+                <div class="flex items-center space-x-2">
+                    <button class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded" id="grid-view">
+                        <i class="ri-layout-grid-line"></i>
+                    </button>
+                    <button class="w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-600 rounded" id="list-view">
+                        <i class="ri-list-check"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vehicles Catalog -->
+<section class="py-8">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Car 1 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                <div class="relative">
+                    <img src="https://readdy.ai/api/search-image?query=Toyota%2520Corolla%25202023%2520silver%2520sedan%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car1&orientation=landscape" alt="Toyota Corolla 2023" class="w-full h-64 object-cover object-top">
+                    <span class="absolute top-4 left-4 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">Nuevo</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">Toyota Corolla</h3>
+                        <p class="text-lg font-bold text-primary">$18.500.000</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>2023</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-dashboard-3-line"></i>
+                            </div>
+                            <span>0 km</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-gas-station-line"></i>
+                            </div>
+                            <span>Nafta</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/d53f45a4-351b-41e8-853f-6594c27dac37" data-readdy="true" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Toyota%20Corolla%202023" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 2 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                <div class="relative">
+                    <img src="https://readdy.ai/api/search-image?query=Volkswagen%2520Golf%25202022%2520blue%2520hatchback%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car2&orientation=landscape" alt="Volkswagen Golf 2022" class="w-full h-64 object-cover object-top">
+                    <span class="absolute top-4 left-4 bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">Usado</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">Volkswagen Golf</h3>
+                        <p class="text-lg font-bold text-primary">$15.200.000</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>2022</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-dashboard-3-line"></i>
+                            </div>
+                            <span>25.000 km</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-gas-station-line"></i>
+                            </div>
+                            <span>Nafta</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/d53f45a4-351b-41e8-853f-6594c27dac37" data-readdy="true" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Volkswagen%20Golf%202022" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 3 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                <div class="relative">
+                    <img src="https://readdy.ai/api/search-image?query=Ford%2520Ranger%25202023%2520black%2520pickup%2520truck%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car3&orientation=landscape" alt="Ford Ranger 2023" class="w-full h-64 object-cover object-top">
+                    <span class="absolute top-4 left-4 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">Nuevo</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">Ford Ranger</h3>
+                        <p class="text-lg font-bold text-primary">$22.900.000</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>2023</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-dashboard-3-line"></i>
+                            </div>
+                            <span>0 km</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-gas-station-line"></i>
+                            </div>
+                            <span>Diesel</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/d53f45a4-351b-41e8-853f-6594c27dac37" data-readdy="true" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20la%20Ford%20Ranger%202023" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 4 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                <div class="relative">
+                    <img src="https://readdy.ai/api/search-image?query=Honda%2520Civic%25202021%2520red%2520sedan%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car4&orientation=landscape" alt="Honda Civic 2021" class="w-full h-64 object-cover object-top">
+                    <span class="absolute top-4 left-4 bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">Usado</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">Honda Civic</h3>
+                        <p class="text-lg font-bold text-primary">$14.800.000</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>2021</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-dashboard-3-line"></i>
+                            </div>
+                            <span>38.000 km</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-gas-station-line"></i>
+                            </div>
+                            <span>Nafta</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/d53f45a4-351b-41e8-853f-6594c27dac37" data-readdy="true" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Honda%20Civic%202021" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 5 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                <div class="relative">
+                    <img src="https://readdy.ai/api/search-image?query=Chevrolet%2520Cruze%25202022%2520white%2520sedan%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car5&orientation=landscape" alt="Chevrolet Cruze 2022" class="w-full h-64 object-cover object-top">
+                    <span class="absolute top-4 left-4 bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">Usado</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">Chevrolet Cruze</h3>
+                        <p class="text-lg font-bold text-primary">$13.500.000</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>2022</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-dashboard-3-line"></i>
+                            </div>
+                            <span>32.000 km</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-gas-station-line"></i>
+                            </div>
+                            <span>Nafta</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/d53f45a4-351b-41e8-853f-6594c27dac37" data-readdy="true" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Chevrolet%20Cruze%202022" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 6 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                <div class="relative">
+                    <img src="https://readdy.ai/api/search-image?query=Audi%2520A3%25202023%2520gray%2520luxury%2520sedan%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car6&orientation=landscape" alt="Audi A3 2023" class="w-full h-64 object-cover object-top">
+                    <span class="absolute top-4 left-4 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">Nuevo</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">Audi A3</h3>
+                        <p class="text-lg font-bold text-primary">$29.800.000</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>2023</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-dashboard-3-line"></i>
+                            </div>
+                            <span>0 km</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-gas-station-line"></i>
+                            </div>
+                            <span>Nafta</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/d53f45a4-351b-41e8-853f-6594c27dac37" data-readdy="true" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Audi%20A3%202023" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 7 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                <div class="relative">
+                    <img src="https://readdy.ai/api/search-image?query=BMW%2520X3%25202022%2520SUV%2520in%2520metallic%2520blue%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car7&orientation=landscape" alt="BMW X3 2022" class="w-full h-64 object-cover object-top">
+                    <span class="absolute top-4 left-4 bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">Usado</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">BMW X3</h3>
+                        <p class="text-lg font-bold text-primary">$32.500.000</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>2022</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-dashboard-3-line"></i>
+                            </div>
+                            <span>18.500 km</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-gas-station-line"></i>
+                            </div>
+                            <span>Nafta</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/d53f45a4-351b-41e8-853f-6594c27dac37" data-readdy="true" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20BMW%20X3%202022" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 8 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                <div class="relative">
+                    <img src="https://readdy.ai/api/search-image?query=Mercedes-Benz%2520GLA%25202023%2520compact%2520SUV%2520in%2520silver%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car8&orientation=landscape" alt="Mercedes-Benz GLA 2023" class="w-full h-64 object-cover object-top">
+                    <span class="absolute top-4 left-4 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">Nuevo</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">Mercedes-Benz GLA</h3>
+                        <p class="text-lg font-bold text-primary">$33.900.000</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>2023</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-dashboard-3-line"></i>
+                            </div>
+                            <span>0 km</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-gas-station-line"></i>
+                            </div>
+                            <span>Nafta</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/d53f45a4-351b-41e8-853f-6594c27dac37" data-readdy="true" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Mercedes-Benz%20GLA%202023" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 9 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                <div class="relative">
+                    <img src="https://readdy.ai/api/search-image?query=Renault%2520Duster%25202021%2520SUV%2520in%2520orange%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car9&orientation=landscape" alt="Renault Duster 2021" class="w-full h-64 object-cover object-top">
+                    <span class="absolute top-4 left-4 bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">Usado</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">Renault Duster</h3>
+                        <p class="text-lg font-bold text-primary">$11.800.000</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>2021</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-dashboard-3-line"></i>
+                            </div>
+                            <span>45.000 km</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-gas-station-line"></i>
+                            </div>
+                            <span>Nafta</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/d53f45a4-351b-41e8-853f-6594c27dac37" data-readdy="true" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Renault%20Duster%202021" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 10 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                <div class="relative">
+                    <img src="https://readdy.ai/api/search-image?query=Fiat%2520Cronos%25202022%2520sedan%2520in%2520red%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car10&orientation=landscape" alt="Fiat Cronos 2022" class="w-full h-64 object-cover object-top">
+                    <span class="absolute top-4 left-4 bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">Usado</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">Fiat Cronos</h3>
+                        <p class="text-lg font-bold text-primary">$9.800.000</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>2022</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-dashboard-3-line"></i>
+                            </div>
+                            <span>28.000 km</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-gas-station-line"></i>
+                            </div>
+                            <span>Nafta</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/d53f45a4-351b-41e8-853f-6594c27dac37" data-readdy="true" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Fiat%20Cronos%202022" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 11 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                <div class="relative">
+                    <img src="https://readdy.ai/api/search-image?query=Peugeot%2520208%25202023%2520hatchback%2520in%2520light%2520blue%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car11&orientation=landscape" alt="Peugeot 208 2023" class="w-full h-64 object-cover object-top">
+                    <span class="absolute top-4 left-4 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">Nuevo</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">Peugeot 208</h3>
+                        <p class="text-lg font-bold text-primary">$14.200.000</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>2023</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-dashboard-3-line"></i>
+                            </div>
+                            <span>0 km</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-gas-station-line"></i>
+                            </div>
+                            <span>Nafta</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/d53f45a4-351b-41e8-853f-6594c27dac37" data-readdy="true" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Peugeot%20208%202023" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 12 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                <div class="relative">
+                    <img src="https://readdy.ai/api/search-image?query=Jeep%2520Renegade%25202022%2520compact%2520SUV%2520in%2520green%252C%2520professional%2520car%2520photography%252C%2520studio%2520lighting%252C%2520clean%2520background%252C%2520front%2520three-quarter%2520view%252C%2520detailed%252C%2520high-quality%2520showroom%2520presentation%252C%2520automotive%2520photography&width=600&height=400&seq=car12&orientation=landscape" alt="Jeep Renegade 2022" class="w-full h-64 object-cover object-top">
+                    <span class="absolute top-4 left-4 bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">Usado</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">Jeep Renegade</h3>
+                        <p class="text-lg font-bold text-primary">$16.900.000</p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>2022</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-dashboard-3-line"></i>
+                            </div>
+                            <span>22.500 km</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                <i class="ri-gas-station-line"></i>
+                            </div>
+                            <span>Nafta</span>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/d53f45a4-351b-41e8-853f-6594c27dac37" data-readdy="true" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Jeep%20Renegade%202022" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="mt-12 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-sm text-gray-600 mr-2">Mostrar</span>
+                <div class="relative inline-block">
+                    <select class="bg-white border border-gray-300 rounded px-3 py-1 pr-8 text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <option value="12">12</option>
+                        <option value="24">24</option>
+                        <option value="36">36</option>
+                        <option value="48">48</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                        <div class="w-4 h-4 flex items-center justify-center text-gray-500">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </div>
+                </div>
+                <span class="text-sm text-gray-600 ml-2">por página</span>
+            </div>
+            
+            <div class="flex items-center">
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-600 rounded-l-lg hover:bg-gray-300 transition-colors duration-200">
+                    <i class="ri-arrow-left-s-line"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-primary text-white">1</a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-white text-gray-600 hover:bg-gray-100 transition-colors duration-200">2</a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-white text-gray-600 hover:bg-gray-100 transition-colors duration-200">3</a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-white text-gray-600 hover:bg-gray-100 transition-colors duration-200">4</a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-white text-gray-600 hover:bg-gray-100 transition-colors duration-200">5</a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-600 rounded-r-lg hover:bg-gray-300 transition-colors duration-200">
+                    <i class="ri-arrow-right-s-line"></i>
+                </a>
+            </div>
+            
+            <div class="mt-4 md:mt-0 text-sm text-gray-600">
+                Página <span class="font-medium">1</span> de <span class="font-medium">10</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-white pt-12 pb-6">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            <div>
+                <img src="https://readdy.ai/api/search-image?query=silver%2520sports%2520car%2520silhouette%2520on%2520dark%2520blue%2520background%252C%2520minimalist%2520design%252C%2520professional%2520automotive%2520logo%252C%2520clean%2520lines%252C%2520modern%2520aesthetic%252C%2520luxury%2520vehicle%2520outline&width=200&height=80&seq=logo2&orientation=landscape" alt="Guille Autos Logo" class="h-12 mb-4">
+                <p class="text-gray-300 mb-4">Tu concesionario de confianza para la compra de autos nuevos y usados en Argentina.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-facebook-fill"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-instagram-line"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-youtube-line"></i>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/5493547449716" class="text-gray-300 hover:text-white transition-colors duration-200">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-whatsapp-line"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4">Enlaces rápidos</h4>
+                <ul class="space-y-2">
+                    <li><a href="https://readdy.ai/home/f9816b65-227f-4ec7-a54e-b66f5a3804c9/c36aa54e-f586-40a2-ae45-281479b836a4" data-readdy="true" class="text-gray-300 hover:text-white transition-colors duration-200">Inicio</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Catálogo</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Beneficios</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Testimonios</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Preguntas frecuentes</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4">Servicios</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Venta de autos nuevos</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Venta de autos usados</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Financiación</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Tasación de vehículos</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Servicio post-venta</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Gestoría del automotor</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                            <i class="ri-map-pin-line"></i>
+                        </div>
+                        <span class="text-gray-300">Av. San Martín 1234, Córdoba, Argentina</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                            <i class="ri-phone-line"></i>
+                        </div>
+                        <span class="text-gray-300">+54 9 3547 44-9716</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                            <i class="ri-mail-line"></i>
+                        </div>
+                        <span class="text-gray-300">info@guilleautos.com.ar</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                            <i class="ri-time-line"></i>
+                        </div>
+                        <span class="text-gray-300">Lun-Vie: 9:00 - 18:00<br>Sáb: 9:00 - 13:00</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 pt-6 mt-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-400 mb-4 md:mb-0">&copy; 2025 Guille Autos. Todos los derechos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Política de privacidad</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Términos y condiciones</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/5493547449716" class="fixed bottom-6 right-6 bg-secondary text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-colors duration-200 z-50">
+    <div class="w-8 h-8 flex items-center justify-center">
+        <i class="ri-whatsapp-line text-2xl"></i>
+    </div>
+</a>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="fixed bottom-6 right-24 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-colors duration-200 z-50 opacity-0 invisible">
+    <div class="w-6 h-6 flex items-center justify-center">
+        <i class="ri-arrow-up-line"></i>
+    </div>
+</button>
+
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', function() {
+        if (mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
+        } else {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+    
+    // Close mobile menu when clicking on a link
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+});
+</script>
+
+<script id="filters-script">
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle filters
+    const toggleFiltersButton = document.getElementById('toggle-filters');
+    const filtersContainer = document.getElementById('filters-container');
+    const filterText = document.getElementById('filter-text');
+    const filterIcon = document.getElementById('filter-icon');
+    
+    toggleFiltersButton.addEventListener('click', function() {
+        if (filtersContainer.style.display === 'none') {
+            filtersContainer.style.display = 'block';
+            filterText.textContent = 'Ocultar filtros';
+            filterIcon.classList.remove('ri-arrow-down-s-line');
+            filterIcon.classList.add('ri-arrow-up-s-line');
+        } else {
+            filtersContainer.style.display = 'none';
+            filterText.textContent = 'Mostrar filtros';
+            filterIcon.classList.remove('ri-arrow-up-s-line');
+            filterIcon.classList.add('ri-arrow-down-s-line');
+        }
+    });
+    
+    // Range sliders
+    const priceMinSlider = document.getElementById('price-min');
+    const priceMaxSlider = document.getElementById('price-max');
+    const priceMinValue = document.getElementById('price-min-value');
+    const priceMaxValue = document.getElementById('price-max-value');
+    
+    priceMinSlider.addEventListener('input', function() {
+        const value = parseInt(this.value);
+        if (value > parseInt(priceMaxSlider.value)) {
+            this.value = priceMaxSlider.value;
+        }
+        priceMinValue.textContent = `$${this.value}M`;
+    });
+    
+    priceMaxSlider.addEventListener('input', function() {
+        const value = parseInt(this.value);
+        if (value < parseInt(priceMinSlider.value)) {
+            this.value = priceMinSlider.value;
+        }
+        priceMaxValue.textContent = `$${this.value}M`;
+    });
+    
+    const kmMinSlider = document.getElementById('km-min');
+    const kmMaxSlider = document.getElementById('km-max');
+    const kmMinValue = document.getElementById('km-min-value');
+    const kmMaxValue = document.getElementById('km-max-value');
+    
+    kmMinSlider.addEventListener('input', function() {
+        const value = parseInt(this.value);
+        if (value > parseInt(kmMaxSlider.value)) {
+            this.value = kmMaxSlider.value;
+        }
+        kmMinValue.textContent = value.toLocaleString() + ' km';
+    });
+    
+    kmMaxSlider.addEventListener('input', function() {
+        const value = parseInt(this.value);
+        if (value < parseInt(kmMinSlider.value)) {
+            this.value = kmMinSlider.value;
+        }
+        kmMaxValue.textContent = value.toLocaleString() + ' km';
+    });
+    
+    // Color options
+    const colorOptions = document.querySelectorAll('.color-option');
+    colorOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            if (this.classList.contains('selected')) {
+                this.classList.remove('selected');
+            } else {
+                this.classList.add('selected');
+            }
+        });
+    });
+});
+</script>
+
+<script id="view-toggle-script">
+document.addEventListener('DOMContentLoaded', function() {
+    const gridViewButton = document.getElementById('grid-view');
+    const listViewButton = document.getElementById('list-view');
+    const cardsContainer = document.querySelector('.grid');
+    
+    gridViewButton.addEventListener('click', function() {
+        cardsContainer.classList.remove('grid-cols-1');
+        cardsContainer.classList.add('grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3');
+        
+        gridViewButton.classList.remove('bg-gray-200', 'text-gray-600');
+        gridViewButton.classList.add('bg-primary', 'text-white');
+        
+        listViewButton.classList.remove('bg-primary', 'text-white');
+        listViewButton.classList.add('bg-gray-200', 'text-gray-600');
+    });
+    
+    listViewButton.addEventListener('click', function() {
+        cardsContainer.classList.remove('md:grid-cols-2', 'lg:grid-cols-3');
+        cardsContainer.classList.add('grid-cols-1');
+        
+        listViewButton.classList.remove('bg-gray-200', 'text-gray-600');
+        listViewButton.classList.add('bg-primary', 'text-white');
+        
+        gridViewButton.classList.remove('bg-primary', 'text-white');
+        gridViewButton.classList.add('bg-gray-200', 'text-gray-600');
+    });
+});
+</script>
+
+<script id="back-to-top-script">
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.remove('opacity-0', 'invisible');
+            backToTopButton.classList.add('opacity-100', 'visible');
+        } else {
+            backToTopButton.classList.remove('opacity-100', 'visible');
+            backToTopButton.classList.add('opacity-0', 'invisible');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+
+<script id="sticky-controls-script">
+document.addEventListener('DOMContentLoaded', function() {
+    const filtersSection = document.querySelector('.sticky');
+    const sortControls = document.getElementById('sort-controls');
+    let filtersHeight = filtersSection.offsetHeight;
+    
+    window.addEventListener('resize', function() {
+        filtersHeight = filtersSection.offsetHeight;
+        sortControls.style.top = `${filtersHeight}px`;
+    });
+    
+    window.addEventListener('scroll', function() {
+        if (window.innerWidth >= 768) {
+            if (window.pageYOffset > filtersSection.offsetTop) {
+                sortControls.style.top = `${filtersHeight}px`;
+            } else {
+                sortControls.style.top = `calc(4rem + ${filtersHeight}px)`;
+            }
+        } else {
+            sortControls.style.top = `${filtersHeight}px`;
+        }
+    });
+});
+</script>
+</body>
+</html>
