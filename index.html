@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guille Autos - Venta de Autos Nuevos y Usados en Argentina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#0B1F3F',secondary:'#25D366'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(to right, rgba(11, 31, 63, 0.9), rgba(11, 31, 63, 0.7)), url('https://readdy.ai/api/search-image?query=luxury%20sports%20cars%20showroom%20with%20modern%20sleek%20design%2C%20premium%20vehicles%20displayed%2C%20soft%20lighting%2C%20professional%20atmosphere%2C%20high-end%20dealership%20interior%2C%20spotless%20floor%2C%20elegant%20environment%2C%20automotive%20excellence%2C%20customer%20service%20area%20visible%2C%20digital%20displays%20showing%20vehicle%20specifications&width=1920&height=800&seq=hero1&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .testimonial-section {
+            background-image: linear-gradient(to right, rgba(11, 31, 63, 0.9), rgba(11, 31, 63, 0.7)), url('https://readdy.ai/api/search-image?query=abstract%20blurred%20automotive%20background%20with%20soft%20bokeh%20lights%2C%20luxury%20car%20dealership%20atmosphere%2C%20professional%20elegant%20environment%2C%20subtle%20pattern%2C%20not%20distracting%20from%20content%2C%20perfect%20for%20testimonial%20section%20background%2C%20high-quality%20premium%20feel&width=1920&height=600&seq=testimonial1&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        .custom-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #0B1F3F;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .custom-checkbox:checked {
+            background-color: #0B1F3F;
+        }
+        
+        .custom-checkbox:checked::after {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 6px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        .custom-radio {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #0B1F3F;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .custom-radio:checked {
+            border-color: #0B1F3F;
+        }
+        
+        .custom-radio:checked::after {
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #0B1F3F;
+        }
+        
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-item input[type="checkbox"] {
+            display: none;
+        }
+        
+        .faq-item label {
+            cursor: pointer;
+        }
+        
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item input[type="checkbox"]:checked ~ .faq-content {
+            max-height: 500px;
+        }
+        
+        .faq-item input[type="checkbox"]:checked ~ label .ri-arrow-down-s-line {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="bg-primary text-white fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://readdy.ai/api/search-image?query=silver%20sports%20car%20silhouette%20on%20dark%20blue%20background%2C%20minimalist%20design%2C%20professional%20automotive%20logo%2C%20clean%20lines%2C%20modern%20aesthetic%2C%20luxury%20vehicle%20outline&width=200&height=80&seq=logo1&orientation=landscape" alt="Guille Autos Logo" class="h-12">
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#inicio" class="hover:text-gray-300 transition-colors duration-200">Inicio</a>
+                <a href="#catalogo" class="hover:text-gray-300 transition-colors duration-200">Catálogo</a>
+                <a href="#beneficios" class="hover:text-gray-300 transition-colors duration-200">Beneficios</a>
+                <a href="#testimonios" class="hover:text-gray-300 transition-colors duration-200">Testimonios</a>
+                <a href="#faq" class="hover:text-gray-300 transition-colors duration-200">FAQ</a>
+                <a href="#contacto" class="hover:text-gray-300 transition-colors duration-200">Contacto</a>
+            </nav>
+            
+            <a href="https://wa.me/5493547449716" class="flex items-center bg-secondary text-white px-4 py-2 rounded-button whitespace-nowrap">
+                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                    <i class="ri-whatsapp-line"></i>
+                </div>
+                <span class="hidden md:inline">Consultar</span>
+            </a>
+            
+            <button class="md:hidden w-10 h-10 flex items-center justify-center text-white" id="mobile-menu-button">
+                <i class="ri-menu-line text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden bg-primary md:hidden">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#inicio" class="text-white hover:text-gray-300 transition-colors duration-200">Inicio</a>
+                <a href="#catalogo" class="text-white hover:text-gray-300 transition-colors duration-200">Catálogo</a>
+                <a href="#beneficios" class="text-white hover:text-gray-300 transition-colors duration-200">Beneficios</a>
+                <a href="#testimonios" class="text-white hover:text-gray-300 transition-colors duration-200">Testimonios</a>
+                <a href="#faq" class="text-white hover:text-gray-300 transition-colors duration-200">FAQ</a>
+                <a href="#contacto" class="text-white hover:text-gray-300 transition-colors duration-200">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section pt-28 pb-20 text-white">
+        <div class="container mx-auto px-4">
+            <div class="w-full md:w-1/2 lg:w-2/5">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Tu próximo auto con la confianza que necesitás</h1>
+                <p class="text-xl mb-6">Encontrá el vehículo perfecto entre nuestra selección de autos nuevos y usados certificados.</p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <div class="flex items-center">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2 text-secondary">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span>Certificados</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2 text-secondary">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span>Financiación</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2 text-secondary">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span>Entrega inmediata</span>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#catalogo" class="bg-white text-primary px-6 py-3 rounded-button font-medium hover:bg-gray-100 transition-colors duration-200 whitespace-nowrap">
+                        Ver catálogo
+                    </a>
+                    <a href="https://wa.me/5493547449716" class="bg-secondary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 flex items-center whitespace-nowrap">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2">
+                            <i class="ri-whatsapp-line"></i>
+                        </div>
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Filters -->
+    <section class="bg-white py-8 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="bg-gray-100 rounded-lg p-6">
+                <h2 class="text-2xl font-bold text-primary mb-4">Encontrá tu auto ideal</h2>
+                <form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Tipo</label>
+                        <div class="relative">
+                            <select class="w-full bg-white border border-gray-300 rounded px-4 py-2 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="">Todos</option>
+                                <option value="nuevo">Nuevo</option>
+                                <option value="usado">Usado</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Marca</label>
+                        <div class="relative">
+                            <select class="w-full bg-white border border-gray-300 rounded px-4 py-2 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="">Todas</option>
+                                <option value="toyota">Toyota</option>
+                                <option value="volkswagen">Volkswagen</option>
+                                <option value="ford">Ford</option>
+                                <option value="chevrolet">Chevrolet</option>
+                                <option value="renault">Renault</option>
+                                <option value="fiat">Fiat</option>
+                                <option value="peugeot">Peugeot</option>
+                                <option value="honda">Honda</option>
+                                <option value="audi">Audi</option>
+                                <option value="bmw">BMW</option>
+                                <option value="mercedes">Mercedes-Benz</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Año</label>
+                        <div class="flex space-x-2">
+                            <div class="relative flex-1">
+                                <select class="w-full bg-white border border-gray-300 rounded px-4 py-2 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="">Desde</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                    <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative flex-1">
+                                <select class="w-full bg-white border border-gray-300 rounded px-4 py-2 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="">Hasta</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                    <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Precio</label>
+                        <div class="flex space-x-2">
+                            <div class="relative flex-1">
+                                <input type="number" placeholder="Mínimo" class="w-full bg-white border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div class="relative flex-1">
+                                <input type="number" placeholder="Máximo" class="w-full bg-white border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-search-line"></i>
+                            </div>
+                            Buscar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Cars -->
+    <section id="catalogo" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-2">Vehículos destacados</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Descubrí nuestra selección de autos nuevos y usados con las mejores condiciones del mercado.</p>
+            </div>
+            
+            <div class="flex mb-8">
+                <div class="inline-flex rounded-full bg-gray-200 p-1">
+                    <button class="px-4 py-2 rounded-full bg-primary text-white whitespace-nowrap">Todos</button>
+                    <button class="px-4 py-2 rounded-full text-gray-700 hover:bg-gray-300 whitespace-nowrap">Nuevos</button>
+                    <button class="px-4 py-2 rounded-full text-gray-700 hover:bg-gray-300 whitespace-nowrap">Usados</button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Car 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=Toyota%20Corolla%202023%20silver%20sedan%2C%20professional%20car%20photography%2C%20studio%20lighting%2C%20clean%20background%2C%20front%20three-quarter%20view%2C%20detailed%2C%20high-quality%20showroom%20presentation%2C%20automotive%20photography&width=600&height=400&seq=car1&orientation=landscape" alt="Toyota Corolla 2023" class="w-full h-64 object-cover object-top">
+                        <span class="absolute top-4 left-4 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">Nuevo</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900">Toyota Corolla</h3>
+                            <p class="text-lg font-bold text-primary">$18.500.000</p>
+                        </div>
+                        <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span>2023</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-dashboard-3-line"></i>
+                                </div>
+                                <span>0 km</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-gas-station-line"></i>
+                                </div>
+                                <span>Nafta</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <a href="#" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                            <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Toyota%20Corolla%202023" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-whatsapp-line"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=Volkswagen%20Golf%202022%20blue%20hatchback%2C%20professional%20car%20photography%2C%20studio%20lighting%2C%20clean%20background%2C%20front%20three-quarter%20view%2C%20detailed%2C%20high-quality%20showroom%20presentation%2C%20automotive%20photography&width=600&height=400&seq=car2&orientation=landscape" alt="Volkswagen Golf 2022" class="w-full h-64 object-cover object-top">
+                        <span class="absolute top-4 left-4 bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">Usado</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900">Volkswagen Golf</h3>
+                            <p class="text-lg font-bold text-primary">$15.200.000</p>
+                        </div>
+                        <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span>2022</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-dashboard-3-line"></i>
+                                </div>
+                                <span>25.000 km</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-gas-station-line"></i>
+                                </div>
+                                <span>Nafta</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <a href="#" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                            <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Volkswagen%20Golf%202022" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-whatsapp-line"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=Ford%20Ranger%202023%20black%20pickup%20truck%2C%20professional%20car%20photography%2C%20studio%20lighting%2C%20clean%20background%2C%20front%20three-quarter%20view%2C%20detailed%2C%20high-quality%20showroom%20presentation%2C%20automotive%20photography&width=600&height=400&seq=car3&orientation=landscape" alt="Ford Ranger 2023" class="w-full h-64 object-cover object-top">
+                        <span class="absolute top-4 left-4 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">Nuevo</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900">Ford Ranger</h3>
+                            <p class="text-lg font-bold text-primary">$22.900.000</p>
+                        </div>
+                        <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span>2023</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-dashboard-3-line"></i>
+                                </div>
+                                <span>0 km</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-gas-station-line"></i>
+                                </div>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <a href="#" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                            <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20la%20Ford%20Ranger%202023" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-whatsapp-line"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=Honda%20Civic%202021%20red%20sedan%2C%20professional%20car%20photography%2C%20studio%20lighting%2C%20clean%20background%2C%20front%20three-quarter%20view%2C%20detailed%2C%20high-quality%20showroom%20presentation%2C%20automotive%20photography&width=600&height=400&seq=car4&orientation=landscape" alt="Honda Civic 2021" class="w-full h-64 object-cover object-top">
+                        <span class="absolute top-4 left-4 bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">Usado</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900">Honda Civic</h3>
+                            <p class="text-lg font-bold text-primary">$14.800.000</p>
+                        </div>
+                        <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span>2021</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-dashboard-3-line"></i>
+                                </div>
+                                <span>38.000 km</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-gas-station-line"></i>
+                                </div>
+                                <span>Nafta</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <a href="#" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                            <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Honda%20Civic%202021" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-whatsapp-line"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 5 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=Chevrolet%20Cruze%202022%20white%20sedan%2C%20professional%20car%20photography%2C%20studio%20lighting%2C%20clean%20background%2C%20front%20three-quarter%20view%2C%20detailed%2C%20high-quality%20showroom%20presentation%2C%20automotive%20photography&width=600&height=400&seq=car5&orientation=landscape" alt="Chevrolet Cruze 2022" class="w-full h-64 object-cover object-top">
+                        <span class="absolute top-4 left-4 bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">Usado</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900">Chevrolet Cruze</h3>
+                            <p class="text-lg font-bold text-primary">$13.500.000</p>
+                        </div>
+                        <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span>2022</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-dashboard-3-line"></i>
+                                </div>
+                                <span>32.000 km</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-gas-station-line"></i>
+                                </div>
+                                <span>Nafta</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <a href="#" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                            <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Chevrolet%20Cruze%202022" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-whatsapp-line"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car 6 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 car-card">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=Audi%20A3%202023%20gray%20luxury%20sedan%2C%20professional%20car%20photography%2C%20studio%20lighting%2C%20clean%20background%2C%20front%20three-quarter%20view%2C%20detailed%2C%20high-quality%20showroom%20presentation%2C%20automotive%20photography&width=600&height=400&seq=car6&orientation=landscape" alt="Audi A3 2023" class="w-full h-64 object-cover object-top">
+                        <span class="absolute top-4 left-4 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full">Nuevo</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900">Audi A3</h3>
+                            <p class="text-lg font-bold text-primary">$29.800.000</p>
+                        </div>
+                        <div class="flex flex-wrap gap-4 text-gray-600 mb-4">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span>2023</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-dashboard-3-line"></i>
+                                </div>
+                                <span>0 km</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1 text-primary">
+                                    <i class="ri-gas-station-line"></i>
+                                </div>
+                                <span>Nafta</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <a href="#" class="flex-1 bg-primary text-white text-center px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Ver detalles</a>
+                            <a href="https://wa.me/5493547449716?text=Hola,%20me%20interesa%20el%20Audi%20A3%202023" class="bg-secondary text-white px-3 py-2 rounded-button hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-whatsapp-line"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">
+                    Ver todos los vehículos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="beneficios" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-2">Por qué elegirnos</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">En Guille Autos nos comprometemos a brindarte la mejor experiencia en la compra de tu próximo vehículo.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg text-center">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary bg-opacity-10 rounded-full">
+                        <div class="w-8 h-8 flex items-center justify-center text-primary">
+                            <i class="ri-shield-check-line text-2xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Autos Certificados</h3>
+                    <p class="text-gray-600">Todos nuestros vehículos pasan por rigurosas inspecciones para garantizar su calidad y buen funcionamiento.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg text-center">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary bg-opacity-10 rounded-full">
+                        <div class="w-8 h-8 flex items-center justify-center text-primary">
+                            <i class="ri-bank-card-line text-2xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Financiación Flexible</h3>
+                    <p class="text-gray-600">Ofrecemos múltiples opciones de financiación adaptadas a tus necesidades y posibilidades.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg text-center">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary bg-opacity-10 rounded-full">
+                        <div class="w-8 h-8 flex items-center justify-center text-primary">
+                            <i class="ri-customer-service-2-line text-2xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Atención Personalizada</h3>
+                    <p class="text-gray-600">Nuestro equipo de asesores te guiará durante todo el proceso de compra para que tomes la mejor decisión.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg text-center">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary bg-opacity-10 rounded-full">
+                        <div class="w-8 h-8 flex items-center justify-center text-primary">
+                            <i class="ri-time-line text-2xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Entrega Rápida</h3>
+                    <p class="text-gray-600">Simplificamos todos los trámites para que puedas disfrutar de tu vehículo en el menor tiempo posible.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-gray-50 rounded-lg overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 lg:p-12 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-primary mb-4">Financiá tu próximo auto</h3>
+                        <p class="text-gray-600 mb-6">Trabajamos con los principales bancos y financieras del país para ofrecerte las mejores opciones de financiación:</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-green-500 mt-1">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-700">Cuotas fijas en pesos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-green-500 mt-1">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-700">Financiación de hasta el 70% del valor</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-green-500 mt-1">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-700">Plazos de hasta 60 meses</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-green-500 mt-1">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-700">Mínimos requisitos</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/5493547449716?text=Hola,%20quiero%20información%20sobre%20financiación" class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                            Consultar opciones de financiación
+                        </a>
+                    </div>
+                    <div class="bg-gray-200">
+                        <img src="https://readdy.ai/api/search-image?query=happy%20couple%20receiving%20car%20keys%20from%20dealer%20in%20modern%20car%20showroom%2C%20professional%20setting%2C%20customer%20satisfaction%2C%20business%20transaction%2C%20car%20buying%20experience%2C%20clean%20environment%2C%20automotive%20dealership%20interior&width=600&height=600&seq=finance1&orientation=squarish" alt="Financiación de vehículos" class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="testimonial-section py-16 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">Lo que dicen nuestros clientes</h2>
+                <p class="max-w-2xl mx-auto opacity-80">Conocé las experiencias de quienes ya confiaron en nosotros para la compra de su vehículo.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-lg">
+                    <div class="flex text-yellow-400 mb-4">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6 italic">"Excelente atención y asesoramiento. Me ayudaron a encontrar el auto perfecto para mi familia y me ofrecieron una financiación muy conveniente. Súper recomendable."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
+                            <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20middle-aged%20man%20with%20short%20dark%20hair%20and%20friendly%20smile%2C%20neutral%20background%2C%20business%20casual%20attire%2C%20portrait%20style%2C%20high%20quality&width=100&height=100&seq=testimonial1&orientation=squarish" alt="Martín Rodríguez" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Martín Rodríguez</h4>
+                            <p class="text-sm opacity-80">Compró un Toyota Corolla</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-lg">
+                    <div class="flex text-yellow-400 mb-4">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6 italic">"La mejor experiencia de compra que tuve. Desde el primer contacto fueron muy claros con toda la información. El auto está impecable y el proceso fue muy rápido. Los recomiendo totalmente."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
+                            <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20young%20woman%20with%20long%20brown%20hair%20and%20friendly%20smile%2C%20neutral%20background%2C%20business%20casual%20attire%2C%20portrait%20style%2C%20high%20quality&width=100&height=100&seq=testimonial2&orientation=squarish" alt="Carolina Méndez" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Carolina Méndez</h4>
+                            <p class="text-sm opacity-80">Compró un Volkswagen Golf</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-lg">
+                    <div class="flex text-yellow-400 mb-4">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-star-half-fill"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6 italic">"Muy buena atención y predisposición. Me asesoraron perfectamente con la financiación y pude comprar mi primer 0km. El trámite fue muy sencillo y rápido. Gracias por todo."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
+                            <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20young%20man%20with%20glasses%20and%20short%20hair%2C%20friendly%20smile%2C%20neutral%20background%2C%20business%20casual%20attire%2C%20portrait%20style%2C%20high%20quality&width=100&height=100&seq=testimonial3&orientation=squarish" alt="Federico Gómez" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Federico Gómez</h4>
+                            <p class="text-sm opacity-80">Compró un Ford Ranger</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-white text-primary px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">
+                    Ver más testimonios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-2">Preguntas frecuentes</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Encontrá respuestas a las dudas más comunes sobre nuestros servicios y procesos de compra.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden">
+                        <input type="checkbox" id="faq-1" class="faq-toggle">
+                        <label for="faq-1" class="flex justify-between items-center p-5 cursor-pointer">
+                            <span class="font-medium text-gray-900">¿Cómo puedo reservar un vehículo?</span>
+                            <div class="w-5 h-5 flex items-center justify-center text-primary transition-transform duration-200">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </div>
+                        </label>
+                        <div class="faq-content px-5 pb-5">
+                            <p class="text-gray-600">Para reservar un vehículo, podés contactarnos por WhatsApp o completar el formulario en nuestra web. Se requiere una seña del 10% del valor del vehículo, que puede ser abonada mediante transferencia bancaria o efectivo en nuestras oficinas.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden">
+                        <input type="checkbox" id="faq-2" class="faq-toggle">
+                        <label for="faq-2" class="flex justify-between items-center p-5 cursor-pointer">
+                            <span class="font-medium text-gray-900">¿Qué documentación necesito para comprar un auto?</span>
+                            <div class="w-5 h-5 flex items-center justify-center text-primary transition-transform duration-200">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </div>
+                        </label>
+                        <div class="faq-content px-5 pb-5">
+                            <p class="text-gray-600">Para la compra de un vehículo necesitás presentar: DNI original y copia, comprobante de domicilio, constancia de CUIL/CUIT y, en caso de financiación, los últimos 3 recibos de sueldo o certificación de ingresos.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden">
+                        <input type="checkbox" id="faq-3" class="faq-toggle">
+                        <label for="faq-3" class="flex justify-between items-center p-5 cursor-pointer">
+                            <span class="font-medium text-gray-900">¿Ofrecen garantía en los vehículos usados?</span>
+                            <div class="w-5 h-5 flex items-center justify-center text-primary transition-transform duration-200">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </div>
+                        </label>
+                        <div class="faq-content px-5 pb-5">
+                            <p class="text-gray-600">Sí, todos nuestros vehículos usados cuentan con una garantía de 3 meses o 3.000 km (lo que ocurra primero) que cubre el motor y la caja de cambios. Además, realizamos una inspección técnica completa antes de la entrega.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden">
+                        <input type="checkbox" id="faq-4" class="faq-toggle">
+                        <label for="faq-4" class="flex justify-between items-center p-5 cursor-pointer">
+                            <span class="font-medium text-gray-900">¿Puedo entregar mi auto usado como parte de pago?</span>
+                            <div class="w-5 h-5 flex items-center justify-center text-primary transition-transform duration-200">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </div>
+                        </label>
+                        <div class="faq-content px-5 pb-5">
+                            <p class="text-gray-600">Sí, aceptamos vehículos usados como parte de pago. Realizamos una tasación gratuita y te ofrecemos el mejor valor de mercado por tu auto. Este monto se descuenta directamente del precio del vehículo que estás adquiriendo.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden">
+                        <input type="checkbox" id="faq-5" class="faq-toggle">
+                        <label for="faq-5" class="flex justify-between items-center p-5 cursor-pointer">
+                            <span class="font-medium text-gray-900">¿Cuánto tiempo demora la entrega de un vehículo nuevo?</span>
+                            <div class="w-5 h-5 flex items-center justify-center text-primary transition-transform duration-200">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </div>
+                        </label>
+                        <div class="faq-content px-5 pb-5">
+                            <p class="text-gray-600">El tiempo de entrega varía según el modelo y la disponibilidad. Para vehículos en stock, la entrega puede ser inmediata una vez completados los trámites administrativos (aproximadamente 48-72 horas). Para unidades a pedido, el plazo estimado es de 30 a 45 días.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item bg-white rounded-lg shadow-sm overflow-hidden">
+                        <input type="checkbox" id="faq-6" class="faq-toggle">
+                        <label for="faq-6" class="flex justify-between items-center p-5 cursor-pointer">
+                            <span class="font-medium text-gray-900">¿Qué opciones de financiación ofrecen?</span>
+                            <div class="w-5 h-5 flex items-center justify-center text-primary transition-transform duration-200">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </div>
+                        </label>
+                        <div class="faq-content px-5 pb-5">
+                            <p class="text-gray-600">Trabajamos con los principales bancos y financieras del país. Ofrecemos planes de financiación de hasta el 70% del valor del vehículo, con plazos de hasta 60 meses y tasas competitivas. También contamos con planes de ahorro y leasing para empresas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-10">
+                    <p class="text-gray-600 mb-4">¿No encontraste la respuesta que buscabas?</p>
+                    <a href="https://wa.me/5493547449716?text=Hola,%20tengo%20una%20consulta" class="inline-flex items-center bg-secondary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2">
+                            <i class="ri-whatsapp-line"></i>
+                        </div>
+                        Consultanos por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-2">Contactanos</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Estamos para ayudarte a encontrar el vehículo perfecto para vos. No dudes en comunicarte con nosotros.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <div class="bg-gray-50 p-8 rounded-lg mb-8">
+                        <h3 class="text-xl font-bold text-primary mb-6">Información de contacto</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 mt-1">
+                                    <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                        <i class="ri-map-pin-line"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Dirección</h4>
+                                    <p class="text-gray-600">Av. San Martín 1234, Córdoba, Argentina</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 mt-1">
+                                    <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                        <i class="ri-time-line"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Horario de atención</h4>
+                                    <p class="text-gray-600">Lunes a Viernes: 9:00 a 18:00<br>Sábados: 9:00 a 13:00</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 mt-1">
+                                    <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                        <i class="ri-phone-line"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Teléfono</h4>
+                                    <p class="text-gray-600">+54 9 3547 44-9716</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 mt-1">
+                                    <div class="w-5 h-5 flex items-center justify-center text-primary">
+                                        <i class="ri-mail-line"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Email</h4>
+                                    <p class="text-gray-600">info@guilleautos.com.ar</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-medium text-gray-900 mb-4">Seguinos en redes sociales</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:bg-opacity-90 transition-colors duration-200">
+                                    <div class="w-5 h-5 flex items-center justify-center">
+                                        <i class="ri-facebook-fill"></i>
+                                    </div>
+                                </a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:bg-opacity-90 transition-colors duration-200">
+                                    <div class="w-5 h-5 flex items-center justify-center">
+                                        <i class="ri-instagram-line"></i>
+                                    </div>
+                                </a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-secondary text-white rounded-full hover:bg-opacity-90 transition-colors duration-200">
+                                    <div class="w-5 h-5 flex items-center justify-center">
+                                        <i class="ri-whatsapp-line"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-200 rounded-lg overflow-hidden h-64">
+                        <img src="https://public.readdy.ai/gen_page/map_placeholder_1280x720.png" alt="Ubicación Guille Autos" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <h3 class="text-xl font-bold text-primary mb-6">Envianos un mensaje</h3>
+                    
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre completo</label>
+                                <input type="text" id="name" class="w-full bg-white border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
+                                <input type="tel" id="phone" class="w-full bg-white border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full bg-white border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">Me interesa</label>
+                            <div class="relative">
+                                <select id="interest" class="w-full bg-white border border-gray-300 rounded px-4 py-2 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="">Seleccionar opción</option>
+                                    <option value="comprar">Comprar un auto nuevo</option>
+                                    <option value="comprar-usado">Comprar un auto usado</option>
+                                    <option value="vender">Vender mi auto</option>
+                                    <option value="financiacion">Información sobre financiación</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                    <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                            <textarea id="message" rows="4" class="w-full bg-white border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <div class="flex items-center mb-6">
+                            <input type="checkbox" id="terms" class="custom-checkbox mr-3">
+                            <label for="terms" class="text-sm text-gray-600">Acepto la política de privacidad y el tratamiento de mis datos personales</label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap">Enviar mensaje</button>
+                        
+                        <div class="text-center mt-4">
+                            <p class="text-sm text-gray-600">O contactanos directamente por WhatsApp</p>
+                            <a href="https://wa.me/5493547449716" class="inline-flex items-center justify-center bg-secondary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors duration-200 mt-2 whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-whatsapp-line"></i>
+                                </div>
+                                Contactar por WhatsApp
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="https://readdy.ai/api/search-image?query=silver%20sports%20car%20silhouette%20on%20dark%20blue%20background%2C%20minimalist%20design%2C%20professional%20automotive%20logo%2C%20clean%20lines%2C%20modern%20aesthetic%2C%20luxury%20vehicle%20outline&width=200&height=80&seq=logo2&orientation=landscape" alt="Guille Autos Logo" class="h-12 mb-4">
+                    <p class="text-gray-300 mb-4">Tu concesionario de confianza para la compra de autos nuevos y usados en Argentina.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-facebook-fill"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-instagram-line"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-youtube-line"></i>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/5493547449716" class="text-gray-300 hover:text-white transition-colors duration-200">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Enlaces rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-300 hover:text-white transition-colors duration-200">Inicio</a></li>
+                        <li><a href="#catalogo" class="text-gray-300 hover:text-white transition-colors duration-200">Catálogo</a></li>
+                        <li><a href="#beneficios" class="text-gray-300 hover:text-white transition-colors duration-200">Beneficios</a></li>
+                        <li><a href="#testimonios" class="text-gray-300 hover:text-white transition-colors duration-200">Testimonios</a></li>
+                        <li><a href="#faq" class="text-gray-300 hover:text-white transition-colors duration-200">Preguntas frecuentes</a></li>
+                        <li><a href="#contacto" class="text-gray-300 hover:text-white transition-colors duration-200">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Venta de autos nuevos</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Venta de autos usados</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Financiación</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Tasación de vehículos</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Servicio post-venta</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Gestoría del automotor</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-300">Av. San Martín 1234, Córdoba, Argentina</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-300">+54 9 3547 44-9716</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-300">info@guilleautos.com.ar</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-gray-300">Lun-Vie: 9:00 - 18:00<br>Sáb: 9:00 - 13:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-6 mt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-400 mb-4 md:mb-0">&copy; 2025 Guille Autos. Todos los derechos reservados.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Política de privacidad</a>
+                        <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Términos y condiciones</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5493547449716" class="fixed bottom-6 right-6 bg-secondary text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-colors duration-200 z-50">
+        <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-whatsapp-line text-2xl"></i>
+        </div>
+    </a>
+
+    <script id="mobile-menu-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+
+    <script id="faq-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                const label = item.querySelector('label');
+                
+                label.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    checkbox.checked = !checkbox.checked;
+                    
+                    // Close other FAQs
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            const otherCheckbox = otherItem.querySelector('input[type="checkbox"]');
+                            otherCheckbox.checked = false;
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <script id="smooth-scroll-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
